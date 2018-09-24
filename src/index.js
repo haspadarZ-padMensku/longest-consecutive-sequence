@@ -13,10 +13,11 @@ module.exports = function longestConsecutiveLength(array) {
   let counter = 1;
   let temp = 1;
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 1; i < array.length; i++) {
     let current = array[i];
-    let next = array[i + 1];
-    if (next == (current + 1) && i !== (array.length - 1)) {
+    let previous = array[i - 1];
+    if ((previous + 1) == current || previous == current) {
+      if (previous == current) continue;
       temp++;
     } else {
       if (counter < temp) {
